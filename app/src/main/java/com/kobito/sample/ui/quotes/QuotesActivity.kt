@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.kobito.sample.R
-import com.kobito.sample.data.Quote
+import com.kobito.sample.data.model.Quote
 import com.kobito.sample.utilities.InjectorUtils
 import kotlinx.android.synthetic.main.activity_quotes.button_add_quote
 import kotlinx.android.synthetic.main.activity_quotes.editText_author
