@@ -6,13 +6,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.kobito.sample.R
 import com.kobito.sample.data.model.Quote
-import com.kobito.sample.utilities.InjectorUtils
 import kotlinx.android.synthetic.main.activity_quotes.button_add_quote
 import kotlinx.android.synthetic.main.activity_quotes.editText_author
 import kotlinx.android.synthetic.main.activity_quotes.editText_quote
 import kotlinx.android.synthetic.main.activity_quotes.textView_quotes
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.closestKodein
+import org.kodein.di.generic.instance
 
-class QuotesActivity : AppCompatActivity() {
+class QuotesActivity : AppCompatActivity(), KodeinAware {
+
+    override val kodein by closestKodein()
+
+    private val factory: QuotesViewModelFactory by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +27,6 @@ class QuotesActivity : AppCompatActivity() {
     }
 
     private fun initializeUi() {
-        val factory = InjectorUtils.provideQuotesViewModelFactory()
         val viewModel = ViewModelProviders.of(this, factory)
             .get(QuotesViewModel::class.java)
         viewModel.getQuotes().observe(this, Observer { quotes ->
