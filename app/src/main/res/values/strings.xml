@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sample</string>
+    <string name="btn_change">Change Fruit</string>
+    <string name="btn_display">Display EditText Content</string>
+    <string name="btn_select">Select random fruit for EditText"</string>
+    <string name="hint_input">Enter a fruit name</string>
 </resources>
