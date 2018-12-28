@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Sample</string>
+
+    <string name="nav_today">Today</string>
+    <string name="nav_7days">7 Days</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="fragment_current">Current</string>
+    <string name="fragment_future_detail">Future Detail</string>
+    <string name="fragment_future_list">Future List</string>
 </resources>
