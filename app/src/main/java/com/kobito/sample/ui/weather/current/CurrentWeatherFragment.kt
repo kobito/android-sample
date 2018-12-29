@@ -17,7 +17,8 @@ class CurrentWeatherFragment : Fragment() {
     private lateinit var viewModel: CurrentWeatherViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.current_weather_fragment, container, false)
@@ -28,5 +29,4 @@ class CurrentWeatherFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
