@@ -1,4 +1,4 @@
-package com.kobito.sample.data.response
+package com.kobito.sample.data.db.entity
 
 data class Condition(
     val text: String,

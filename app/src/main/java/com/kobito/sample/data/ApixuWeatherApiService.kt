@@ -1,7 +1,7 @@
 package com.kobito.sample.data
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.kobito.sample.data.response.CurrentWeatherResponse
+import com.kobito.sample.data.network.response.CurrentWeatherResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

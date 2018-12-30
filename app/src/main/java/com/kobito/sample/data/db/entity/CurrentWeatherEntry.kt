@@ -1,4 +1,4 @@
-package com.kobito.sample.data.response
+package com.kobito.sample.data.db.entity
 
 import com.google.gson.annotations.SerializedName
 
