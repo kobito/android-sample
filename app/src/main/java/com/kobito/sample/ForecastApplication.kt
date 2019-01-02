@@ -1,6 +1,7 @@
 package com.kobito.sample
 
 import android.app.Application
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.kobito.sample.data.db.ForecastDatabase
 import com.kobito.sample.data.network.ApixuWeatherApiService
 import com.kobito.sample.data.network.ConnectivityInterceptor
@@ -26,5 +27,10 @@ class ForecastApplication : Application(), KodeinAware {
         bind() from singleton { ApixuWeatherApiService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance()) }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
     }
 }
