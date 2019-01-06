@@ -5,7 +5,9 @@
     <string name="nav_7days">7 Days</string>
     <string name="nav_settings">Settings</string>
 
-    <string name="fragment_current">Current</string>
+    <string name="loading">Loading</string>
+    <string name="current_condition">Current Condition</string>
+
     <string name="fragment_future_detail">Future Detail</string>
     <string name="fragment_future_list">Future List</string>
 </resources>
