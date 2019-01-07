@@ -18,5 +18,10 @@ before_install:
   - yes | sdkmanager "build-tools;28.0.3"
   - yes | sdkmanager "platforms;android-28"
 
+matrix:
+  include:
+  - env: CHECK=ktlint
+  - env: CHECK=lint
+
 script:
-  - ./gradlew clean ktlint
+  - ./gradlew clean $CHECK
