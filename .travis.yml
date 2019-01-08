@@ -13,6 +13,7 @@ android:
 branches:
   only:
     - master
+    - forecast
 
 before_install:
   - yes | sdkmanager "build-tools;28.0.3"
