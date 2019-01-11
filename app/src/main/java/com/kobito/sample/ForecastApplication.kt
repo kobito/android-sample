@@ -9,6 +9,8 @@ import com.kobito.sample.data.network.ConnectivityInterceptor
 import com.kobito.sample.data.network.ConnectivityInterceptorImpl
 import com.kobito.sample.data.network.WeatherNetworkDataSource
 import com.kobito.sample.data.network.WeatherNetworkDataSourceImpl
+import com.kobito.sample.data.provider.LocationProvider
+import com.kobito.sample.data.provider.LocationProviderImpl
 import com.kobito.sample.data.provider.UnitProvider
 import com.kobito.sample.data.provider.UnitProviderImpl
 import com.kobito.sample.data.repository.ForecastRepository
@@ -28,10 +30,12 @@ class ForecastApplication : Application(), KodeinAware {
 
         bind() from singleton { ForecastDatabase(instance()) }
         bind() from singleton { instance<ForecastDatabase>().currentWeatherDao() }
+        bind() from singleton { instance<ForecastDatabase>().weatherLocationDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApixuWeatherApiService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance()) }
+        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance(), instance(), instance()) }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { CurrentWeatherViewModelFactory(instance(), instance()) }
     }
