@@ -1,6 +1,6 @@
 package com.kobito.sample.data.db.unitlocalized.current
 
-interface UnitSpecificCurrentWheatherEntry {
+interface UnitSpecificCurrentWeatherEntry {
     val temperature: Double
     val conditionText: String
     val conditionIconUrl: String

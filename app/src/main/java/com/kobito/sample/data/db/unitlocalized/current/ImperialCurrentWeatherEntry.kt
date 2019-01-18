@@ -19,4 +19,4 @@ data class ImperialCurrentWeatherEntry(
     override val feelsLikeTemperature: Double,
     @ColumnInfo(name = "visMiles")
     override val visibilityDistance: Double
-) : UnitSpecificCurrentWheatherEntry
+) : UnitSpecificCurrentWeatherEntry
