@@ -1,4 +1,4 @@
-package com.kobito.sample.data.db.unitlocalized
+package com.kobito.sample.data.db.unitlocalized.current
 
 import androidx.room.ColumnInfo
 
