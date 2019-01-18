@@ -7,8 +7,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.kobito.sample.data.db.entity.CURRENT_WEATHER_ID
 import com.kobito.sample.data.db.entity.CurrentWeatherEntry
-import com.kobito.sample.data.db.unitlocalized.ImperialCurrentWeatherEntry
-import com.kobito.sample.data.db.unitlocalized.MetricCurrentWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.current.ImperialCurrentWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.current.MetricCurrentWeatherEntry
 
 @Dao
 interface CurrentWeatherDao {

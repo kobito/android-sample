@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.kobito.sample.data.db.CurrentWeatherDao
 import com.kobito.sample.data.db.WeatherLocationDao
 import com.kobito.sample.data.db.entity.WeatherLocation
-import com.kobito.sample.data.db.unitlocalized.UnitSpecificCurrentWheatherEntry
+import com.kobito.sample.data.db.unitlocalized.current.UnitSpecificCurrentWheatherEntry
 import com.kobito.sample.data.network.WeatherNetworkDataSource
 import com.kobito.sample.data.network.response.CurrentWeatherResponse
 import com.kobito.sample.data.provider.LocationProvider
