@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.kobito.sample.data.db.CurrentWeatherDao
 import com.kobito.sample.data.db.WeatherLocationDao
 import com.kobito.sample.data.db.entity.WeatherLocation
-import com.kobito.sample.data.db.unitlocalized.current.UnitSpecificCurrentWheatherEntry
+import com.kobito.sample.data.db.unitlocalized.current.UnitSpecificCurrentWeatherEntry
 import com.kobito.sample.data.network.WeatherNetworkDataSource
 import com.kobito.sample.data.network.response.CurrentWeatherResponse
 import com.kobito.sample.data.provider.LocationProvider
@@ -28,7 +28,7 @@ class ForecastRepositoryImpl(
         }
     }
 
-    override suspend fun getCurrentWeather(metric: Boolean): LiveData<out UnitSpecificCurrentWheatherEntry> {
+    override suspend fun getCurrentWeather(metric: Boolean): LiveData<out UnitSpecificCurrentWeatherEntry> {
         return withContext(Dispatchers.IO) {
             initWeatherData()
             return@withContext if (metric) currentWeatherDao.getWeatherMetric()
