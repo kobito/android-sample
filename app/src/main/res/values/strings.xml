@@ -9,5 +9,4 @@
     <string name="current_condition">Current Condition</string>
 
     <string name="fragment_future_detail">Future Detail</string>
-    <string name="fragment_future_list">Future List</string>
 </resources>
