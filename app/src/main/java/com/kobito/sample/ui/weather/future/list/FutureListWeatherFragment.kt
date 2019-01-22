@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kobito.sample.R
+import com.kobito.sample.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
 import com.kobito.sample.ui.base.ScopedFragment
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.future_list_weather_fragment.group_loading
+import kotlinx.android.synthetic.main.future_list_weather_fragment.recyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
@@ -53,6 +58,7 @@ class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
 
             group_loading.visibility = View.GONE
             updateDateToNextWeek()
+            initRecycleView(weatherEntries.toFutureWeatherItems())
         })
     }
 
@@ -62,5 +68,26 @@ class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
 
     private fun updateDateToNextWeek() {
         (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Next Week"
+    }
+
+    private fun List<UnitSpecificSimpleFutureWeatherEntry>.toFutureWeatherItems(): List<FutureWeatherItem> {
+        return this.map {
+            FutureWeatherItem(it)
+        }
+    }
+
+    private fun initRecycleView(items: List<FutureWeatherItem>) {
+        val groupAdapter = GroupAdapter<ViewHolder>().apply {
+            addAll(items)
+        }
+
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@FutureListWeatherFragment.context)
+            adapter = groupAdapter
+        }
+
+        groupAdapter.setOnItemClickListener { item, view ->
+            // TODO
+        }
     }
 }
