@@ -1,28 +1,27 @@
 language: android
-
 android:
   components:
-    - tools
-    - platform-tools-26.1.1
-    - build-tools-28.0.3
-    - extra-google-m2repository
-    - extra-android-m2repository
+  - tools
+  - platform-tools-26.1.1
+  - build-tools-28.0.3
+  - extra-google-m2repository
+  - extra-android-m2repository
   licenses:
-    - 'android-sdk-license-.+'
-
+  - android-sdk-license-.+
+env:
+  secure: vgsP6rQYKJ4MdplgwandNRypDm6Zusq+yEIDMKayYsIJYz7VzSRbJkvRUbcKR4YRQ9feQdx6QUrb9izMBaJxO/2q+PVzPt4vP4iQk9nx3zvGB8MIf58bbh1mEMYG/iPcZN19mpBu6IkM6owYlRs36zjHTdT4xcrMAtvtARZTytn1DnIOq2nCMaxPXwd9NuTqKCQCxFloNmexmifHlyXJQvXiaUksL+49UeLv1CS/7EACFWQN2Y7c7YZtKAnaQig53DGhCGoANO7K5BuCAlz93ADEjRXN9IE4B51jlT+gAVIqNXIlNyc6pp0eaqSHUtkYqlN6IzdsoOX8jsQBg19CmEAbGHbFpteikvDlhs1CulcxAASSCwcA7LBiJaXURxv10Ad8JG7GrHehIPyNCGoyl+WA5XkwF+to54s+sZvcgUJSKhpBPY0m2/yvpJcD6GzCj0di/fW8lxhU88XyFoNkI93IyRXHDipmqiXt16ps6zo3Vx1OZo3s7+DvcNbMlJWe0G0idZuAZRrWBFnXNMfI4C1AqjYdkPE6ueIeITO3544FpB1jJZCvazZOEFYF7BruRvpgLDNWvUkP9Jm11Ia+aHFtlS0aAnA0SIDpwp9pGM6Hiai+XkAFNoA2E6Idm86mzSrgyQGXYU4pf8dpvgV8FlTdF/UXnpyBoMsOZ82Z5bs=
 branches:
   only:
-    - master
-
+  - master
+  - googlemap
 before_install:
-  - yes | sdkmanager "build-tools;28.0.3"
-  - yes | sdkmanager "platforms;android-28"
-
+- yes | sdkmanager "build-tools;28.0.3"
+- yes | sdkmanager "platforms;android-28"
 jobs:
   include:
-    - stage: check
-      name: "lint"
-      script: ./gradlew clean lint
-    -
-      name: "ktlint"
-      script: ./gradlew clean ktlint
+  - stage: check
+    name: lint
+    script: "./gradlew clean lint"
+  - stage: check
+    name: ktlint
+    script: "./gradlew clean ktlint"
