@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+def api_key = hasProperty("API_KEY") ? API_KEY : System.getenv("API_KEY")
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -13,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [API_KEY:API_KEY]
+        manifestPlaceholders = [API_KEY:api_key]
     }
     buildTypes {
         release {
