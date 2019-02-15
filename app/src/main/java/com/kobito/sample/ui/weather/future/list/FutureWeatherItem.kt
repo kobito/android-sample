@@ -1,8 +1,8 @@
 package com.kobito.sample.ui.weather.future.list
 
 import com.kobito.sample.R
-import com.kobito.sample.data.db.unitlocalized.future.MetricSimpleFutureWeatherEntry
-import com.kobito.sample.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.future.list.MetricSimpleFutureWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.kobito.sample.internal.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
