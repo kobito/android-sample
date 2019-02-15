@@ -6,7 +6,8 @@ import com.kobito.sample.data.db.FutureWeatherDao
 import com.kobito.sample.data.db.WeatherLocationDao
 import com.kobito.sample.data.db.entity.WeatherLocation
 import com.kobito.sample.data.db.unitlocalized.current.UnitSpecificCurrentWeatherEntry
-import com.kobito.sample.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.future.detail.UnitSpecificDetailFutureWeatherEntry
+import com.kobito.sample.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.kobito.sample.data.network.FORECAST_DAYS_COUNT
 import com.kobito.sample.data.network.WeatherNetworkDataSource
 import com.kobito.sample.data.network.response.CurrentWeatherResponse
@@ -55,6 +56,17 @@ class ForecastRepositoryImpl(
             initWeatherData()
             return@withContext if (metric) futureWeatherDao.getSimpleWeatherForecastsMetric(startDate)
             else futureWeatherDao.getSimpleWeatherForecastsImperial(startDate)
+        }
+    }
+
+    override suspend fun getFutureWeatherByDate(
+        date: LocalDate,
+        metric: Boolean
+    ): LiveData<out UnitSpecificDetailFutureWeatherEntry> {
+        return withContext(Dispatchers.IO) {
+            initWeatherData()
+            return@withContext if (metric) futureWeatherDao.getDetailedWeatherByDateMetric(date)
+            else futureWeatherDao.getDetailedWeatherByDateImperial(date)
         }
     }
 

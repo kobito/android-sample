@@ -1,4 +1,4 @@
-package com.kobito.sample.data.db.unitlocalized.future
+package com.kobito.sample.data.db.unitlocalized.future.list
 
 import org.threeten.bp.LocalDate
 

@@ -24,9 +24,9 @@ data class CurrentWeatherEntry(
     @SerializedName("wind_dir")
     val windDir: String,
     @SerializedName("precip_mm")
-    val precipMm: Int,
+    val precipMm: Double,
     @SerializedName("precip_in")
-    val precipIn: Int,
+    val precipIn: Double,
     @SerializedName("feelslike_c")
     val feelslikeC: Double,
     @SerializedName("feelslike_f")
